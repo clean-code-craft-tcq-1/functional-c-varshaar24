@@ -21,5 +21,5 @@ int main()
     assert(!batteryIsOk(25, 15, 0));
     assert(!batteryIsOk(40, 85, 0));
     assert(!batteryIsOk(40, 80, 0.9));
-  return 1;
+  return 0;
 }
