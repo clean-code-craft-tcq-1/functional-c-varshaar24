@@ -1,12 +1,23 @@
 #include <assert.h>
+#include <stdbool.h>
 #include "BMS_Types.h"
+
 
 static int batteryIsOk(float temperature, float soc, float chargeRate)
 {
 
-  if((!CheckTemperatureInRange(temperature,(float)TEMPERATURE_UL,(float)TEMPERATURE_LL)) ||
-     (!CheckSocInRange(soc,(float)SOC_UL,(float)SOC_LL)) ||
-     (!CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL)))
+    bool Temp_b;
+    bool Soc_b;
+    bool Rate_b;
+
+
+    Temp_b = !CheckTemperatureInRange(temperature,(float)TEMPERATURE_UL,(float)TEMPERATURE_LL);
+    Soc_b= !CheckSocInRange(soc,(float)SOC_UL,(float)SOC_LL);
+    Rate_b = !CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL)
+            ;
+  if((Temp_b) ||
+     (Soc_b) ||
+     (Rate_b))
   {
     return 0;
   }
