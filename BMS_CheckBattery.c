@@ -14,7 +14,7 @@ static int batteryIsOk(float temperature, float soc, float chargeRate)
 
     Temperr_b = !CheckTemperatureInRange(temperature,(float)TEMPERATURE_UL,(float)TEMPERATURE_LL);
     Socerr_b= !CheckSocInRange(soc,(float)SOC_UL,(float)SOC_LL);
-    Rateerr_b = !CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL)
+    Rateerr_b = !CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL);
         
     Error_b = Temperr_b || Socerr_b || Rateerr_b;
             
