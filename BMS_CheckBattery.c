@@ -6,18 +6,19 @@
 static int batteryIsOk(float temperature, float soc, float chargeRate)
 {
 
-    bool Temp_b;
-    bool Soc_b;
-    bool Rate_b;
+    bool Temperr_b;
+    bool Socerr_b;
+    bool Rateerr_b;
+    bool Error_b;
 
 
-    Temp_b = !CheckTemperatureInRange(temperature,(float)TEMPERATURE_UL,(float)TEMPERATURE_LL);
-    Soc_b= !CheckSocInRange(soc,(float)SOC_UL,(float)SOC_LL);
-    Rate_b = !CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL)
-            ;
-  if((Temp_b) ||
-     (Soc_b) ||
-     (Rate_b))
+    Temperr_b = !CheckTemperatureInRange(temperature,(float)TEMPERATURE_UL,(float)TEMPERATURE_LL);
+    Socerr_b= !CheckSocInRange(soc,(float)SOC_UL,(float)SOC_LL);
+    Rateerr_b = !CheckChargeRateInRange(chargeRate,(float)CHARGERATE_UL)
+        
+    Error_b = Temperr_b || Socerr_b || Rateerr_b;
+            
+  if(Error_b)
   {
     return 0;
   }
